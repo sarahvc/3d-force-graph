@@ -1,0 +1,48 @@
+<head>
+    <style> body { margin: 0; } </style>
+  
+    <script src="//unpkg.com/3d-force-graph"></script>
+    <!--<script src="../../dist/3d-force-graph.js"></script>-->
+  </head>
+  
+  <body>
+  
+    <div id="3d-graph"></div>
+  
+    <script>
+      const elem = document.getElementById('3d-graph');
+      const colors = ["#0021ff","#5d00ff","#a500ff","#ff00b2"];
+      const Graph = ForceGraph3D()(elem)
+        .jsonUrl('../datasets/fomo.json')
+        .nodeColor(node => colors[Math.floor(Math.random() * 4)])
+        .nodeLabel(node => `${node.id}`)
+        .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
+        .enablePointerInteraction(true);
+
+    setTimeout(() => {
+      const { nodes, links } = Graph.graphData();
+      const id = nodes.length;
+      Graph.graphData({
+        nodes: [...nodes, { id }],
+        links: [...links, { source: id, target: "0x18255e196c6dc63a197c4bfa0a05d1c430f5ec25" }]
+      });
+      console.log('first time out');
+    }, 40000);
+
+    setTimeout(() => {
+        const { nodes, links } = Graph.graphData();
+        const len = nodes.length;
+        const thisnode = nodes[len-1];
+        const distance = 40;
+          const distRatio = 1 + distance/Math.hypot(thisnode.x, thisnode.y, thisnode.z);
+
+          Graph.cameraPosition(
+            { x: thisnode.x * distRatio, y: thisnode.y * distRatio, z: thisnode.z * distRatio }, // new position
+            thisnode, // lookAt ({ x, y, z })
+            3000  // ms transition duration
+          );
+          console.log('second time out');
+    }, 60000);
+
+    </script>
+  </body>

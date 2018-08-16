@@ -1,0 +1,22 @@
+<head>
+    <style> body { margin: 0; } </style>
+  
+    <script src="//unpkg.com/3d-force-graph"></script>
+    <!--<script src="../../dist/3d-force-graph.js"></script>-->
+  </head>
+  
+  <body>
+  
+    <div id="3d-graph"></div>
+  
+    <script>
+      const elem = document.getElementById('3d-graph');
+      const colors = ["#0021ff","#5d00ff","#a500ff","#ff00b2"];
+      const Graph = ForceGraph3D()(elem)
+        .jsonUrl('../datasets/fomo.json')
+        .nodeColor(node => colors[Math.floor(Math.random() * 4)])
+        .nodeLabel(node => `${node.id}`)
+        .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
+        .enablePointerInteraction(true);
+    </script>
+  </body>
