@@ -25,6 +25,8 @@ Check out the examples:
 * [Dynamic data changes](https://vasturiano.github.io/3d-force-graph/example/dynamic/) ([source](https://github.com/vasturiano/3d-force-graph/blob/master/example/dynamic/index.html))
 * [Node collision detection](https://vasturiano.github.io/3d-force-graph/example/collision-detection/) ([source](https://github.com/vasturiano/3d-force-graph/blob/master/example/collision-detection/index.html))
 * [Add external objects to scene](https://vasturiano.github.io/3d-force-graph/example/scene/) ([source](https://github.com/vasturiano/3d-force-graph/blob/master/example/scene/index.html))
+* [Initial test on fomo data](https://vasturiano.github.io/3d-force-graph/example/fomoInitial/) ([source](https://github.com/vasturiano/3d-force-graph/blob/master/example/fomoInitial/index.html))
+* [Dynamic fomo data viz](https://vasturiano.github.io/3d-force-graph/example/fomoDynamic/) ([source](https://github.com/vasturiano/3d-force-graph/blob/master/example/fomoDynamic/index.html))
 
 See also the [VR version](https://github.com/vasturiano/3d-force-graph-vr) and the [2D canvas version](https://github.com/vasturiano/force-graph).
 
