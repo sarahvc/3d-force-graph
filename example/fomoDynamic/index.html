@@ -27,7 +27,7 @@
         links: [...links, { source: id, target: "0x18255e196c6dc63a197c4bfa0a05d1c430f5ec25" }]
       });
       console.log('first time out');
-    }, 40000);
+    }, 30000);
 
     setTimeout(() => {
         const { nodes, links } = Graph.graphData();
@@ -42,7 +42,18 @@
             3000  // ms transition duration
           );
           console.log('second time out');
-    }, 60000);
+    }, 50000);
 
+    setTimeout(() => {
+      // camera orbit
+      let angle = 0;
+      setInterval(() => {
+        Graph.cameraPosition({
+          x: distance * Math.sin(angle),
+          z: distance * Math.cos(angle)
+        });
+        angle += Math.PI / 300;
+      }, 10);
+  }, 70000);
     </script>
   </body>
